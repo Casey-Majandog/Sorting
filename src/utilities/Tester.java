@@ -170,6 +170,15 @@ public class Tester
             else if(compareType.equalsIgnoreCase("V"))
                 MySort.selectionSort(shapeList, cv);
         }
+        else if (sortType.equalsIgnoreCase("I"))
+        {
+            if (compareType.equalsIgnoreCase("H"))
+                MySort.insertionSort(shapeList);
+            else if(compareType.equalsIgnoreCase("A"))
+                MySort.insertionSort(shapeList, ca);
+            else if(compareType.equalsIgnoreCase("V"))
+                MySort.insertionSort(shapeList, cv);
+        }
 
         // Print out list AFTER it gets sorted
         int j = 0;

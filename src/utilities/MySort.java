@@ -93,12 +93,38 @@ public class MySort
     
     public static <T extends Comparable <Shape>> void insertionSort(ArrayList<Shape> list)
     {
+        start = System.currentTimeMillis();
+        for (int i = 0; i < list.size(); i++) {       
+                int j = i;
+                while (j > 0 && list.get(j-1).compareTo(list.get(j)) < 0)
+                {
+                    Shape temp = list.get(j);
+                    list.set(j,list.get(j-1));
+                    list.set(j-1, temp);
+                    j = j - 1;
+                }       
+        }
+        stop = System.currentTimeMillis();
         
+        System.out.println("Amount of time to complete Insertion sort: " + (stop-start) + "ms");
     }
     
     public static <t, T> void insertionSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
-       
+        start = System.currentTimeMillis();
+        for (int i = 0; i < list.size(); i++) {       
+                int j = i;
+                while (j > 0 && c.compare(list.get(j-1), list.get(j)) < 0)
+                {
+                    Shape temp = list.get(j);
+                    list.set(j,list.get(j-1));
+                    list.set(j-1, temp);
+                    j = j - 1;
+                }       
+        }
+        stop = System.currentTimeMillis();
+        
+        System.out.println("Amount of time to complete Insertion sort: " + (stop-start) + "ms");
     }
     
     public static <T extends Comparable <Shape>> void mergeSort(ArrayList<Shape> list)
