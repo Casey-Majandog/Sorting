@@ -62,7 +62,7 @@ public class Calculations
      */
     public static double coneVolume(double radius, double height)
     {
-        volume = (1/3)*Math.PI*(Math.pow(radius, 2))*height;
+        volume = (0.33)*Math.PI*Math.pow(radius, 2)*height;
         return volume;        
     }
     
@@ -87,7 +87,7 @@ public class Calculations
      */
     public static double pyramidVolume(double side, double height)
     {
-        volume = (1/3)*(Math.pow(side, 2))*height;
+        volume = (0.33)*(Math.pow(side, 2))*height;
         return volume;        
     }
     

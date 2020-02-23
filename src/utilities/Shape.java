@@ -1,7 +1,5 @@
 package utilities;
 
-
-
 /**
  * An abstract class shape that contains the attributes
  * that are shared across all shapes.
@@ -10,7 +8,7 @@ package utilities;
  * @version 1.0
  * Created on February 19, 2020
  */
-public abstract class Shape  
+public abstract class Shape  implements Comparable<Shape>
 {
     //Attributes
     private double height;
@@ -75,7 +73,23 @@ public abstract class Shape
     {
         this.volume = volume;
     }
-
     
-    
+    @Override
+    public int compareTo(Shape shape)
+    {
+        if(this.height > shape.height)
+        {
+            return 1;
+        }
+        else if(this.height < shape.height)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+           
+    }
+      
 }
