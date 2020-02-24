@@ -31,6 +31,7 @@ public class Tester
 {
 
     // Attributes
+    private static long start, stop;
     private static String fileName;
     private static String compareType;
     private static String sortType;
@@ -179,10 +180,67 @@ public class Tester
             else if(compareType.equalsIgnoreCase("V"))
                 MySort.insertionSort(shapeList, cv);
         }
+        else if (sortType.equalsIgnoreCase("M"))
+        {
+            if (compareType.equalsIgnoreCase("H"))
+            {
+                start = System.currentTimeMillis();
+                shapeList = MySort.mergeSort(shapeList);
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
+            }
+            else if (compareType.equalsIgnoreCase("A"))
+            {
+                start = System.currentTimeMillis();
+                shapeList = MySort.mergeSort(shapeList, ca);
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
+            }
+            else if (compareType.equalsIgnoreCase("V"))
+            {
+                start = System.currentTimeMillis();
+                shapeList = MySort.mergeSort(shapeList, cv);
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
+            }
+        }
+        else if (sortType.equalsIgnoreCase("Q"))
+        {
+            if (compareType.equalsIgnoreCase("H"))
+            {
+                start = System.currentTimeMillis();
+                MySort.quickSort(shapeList,0,(shapeList.size()));
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
+            }
+            else if(compareType.equalsIgnoreCase("A"))
+            {
+                start = System.currentTimeMillis();
+                MySort.quickSort(shapeList,0,(shapeList.size()),ca);
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
+            }
+            else if(compareType.equalsIgnoreCase("V"))
+            {
+                start = System.currentTimeMillis();
+                MySort.quickSort(shapeList,0,(shapeList.size()),cv);
+                stop = System.currentTimeMillis();
+                System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
+            }
+        }
+        else if (sortType.equalsIgnoreCase("Z"))
+        {
+            if (compareType.equalsIgnoreCase("H"))
+                MySort.cocktailSort(shapeList);
+            else if(compareType.equalsIgnoreCase("A"))
+                MySort.cocktailSort(shapeList, ca);
+            else if(compareType.equalsIgnoreCase("V"))
+                MySort.cocktailSort(shapeList, cv);
+        }
+
 
         // Print out list AFTER it gets sorted
         int j = 0;
-
         thousandth = 999;
         while (j < shapeList.size())
         {
