@@ -29,7 +29,6 @@ import shapes.TriangularPrism;
  */
 public class Tester
 {
-
     // Attributes
     private static long start, stop;
     private static String fileName;
@@ -49,6 +48,13 @@ public class Tester
     private static CompareArea ca = new CompareArea();
     private static CompareVolume cv = new CompareVolume();
 
+    /**
+     * Takes input from the command line which will indicate the file, sort type and 
+     * data type to sort by. Prints out results of the sort and time it took to
+     * execute the sort based on chosen arguments.
+     * @param args Arguments given via command line.
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException
     {
 
@@ -57,12 +63,11 @@ public class Tester
         // Use JOption pane for now, figure out how to using command prompt later
         for (String arg : args)
         {
-           // System.out.println(arg);
             subString = arg.substring(1, 2);
 
             if (subString.equalsIgnoreCase("F"))
             {
-                fileName = arg.substring(2);
+                fileName = "res/" +arg.substring(2);
                 System.out.println("The file name is: " + fileName);
             } else if (subString.equalsIgnoreCase("T"))
             {
@@ -152,35 +157,32 @@ public class Tester
             i++;
         }
 
-        //Check sort here
+        // Check sort here
         if (sortType.equalsIgnoreCase("B"))
         {
             if (compareType.equalsIgnoreCase("H"))
                 MySort.bubbleSort(shapeList);
-            else if(compareType.equalsIgnoreCase("A"))
+            else if (compareType.equalsIgnoreCase("A"))
                 MySort.bubbleSort(shapeList, ca);
-            else if(compareType.equalsIgnoreCase("V"))
+            else if (compareType.equalsIgnoreCase("V"))
                 MySort.bubbleSort(shapeList, cv);
-        }
-        else if (sortType.equalsIgnoreCase("S"))
+        } else if (sortType.equalsIgnoreCase("S"))
         {
             if (compareType.equalsIgnoreCase("H"))
                 MySort.selectionSort(shapeList);
-            else if(compareType.equalsIgnoreCase("A"))
+            else if (compareType.equalsIgnoreCase("A"))
                 MySort.selectionSort(shapeList, ca);
-            else if(compareType.equalsIgnoreCase("V"))
+            else if (compareType.equalsIgnoreCase("V"))
                 MySort.selectionSort(shapeList, cv);
-        }
-        else if (sortType.equalsIgnoreCase("I"))
+        } else if (sortType.equalsIgnoreCase("I"))
         {
             if (compareType.equalsIgnoreCase("H"))
                 MySort.insertionSort(shapeList);
-            else if(compareType.equalsIgnoreCase("A"))
+            else if (compareType.equalsIgnoreCase("A"))
                 MySort.insertionSort(shapeList, ca);
-            else if(compareType.equalsIgnoreCase("V"))
+            else if (compareType.equalsIgnoreCase("V"))
                 MySort.insertionSort(shapeList, cv);
-        }
-        else if (sortType.equalsIgnoreCase("M"))
+        } else if (sortType.equalsIgnoreCase("M"))
         {
             if (compareType.equalsIgnoreCase("H"))
             {
@@ -188,56 +190,49 @@ public class Tester
                 shapeList = MySort.mergeSort(shapeList);
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
-            }
-            else if (compareType.equalsIgnoreCase("A"))
+            } else if (compareType.equalsIgnoreCase("A"))
             {
                 start = System.currentTimeMillis();
                 shapeList = MySort.mergeSort(shapeList, ca);
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
-            }
-            else if (compareType.equalsIgnoreCase("V"))
+            } else if (compareType.equalsIgnoreCase("V"))
             {
                 start = System.currentTimeMillis();
                 shapeList = MySort.mergeSort(shapeList, cv);
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Merge sort: " + (stop - start) + "ms");
             }
-        }
-        else if (sortType.equalsIgnoreCase("Q"))
+        } else if (sortType.equalsIgnoreCase("Q"))
         {
             if (compareType.equalsIgnoreCase("H"))
             {
                 start = System.currentTimeMillis();
-                MySort.quickSort(shapeList,0,(shapeList.size()));
+                MySort.quickSort(shapeList, 0, (shapeList.size()));
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
-            }
-            else if(compareType.equalsIgnoreCase("A"))
+            } else if (compareType.equalsIgnoreCase("A"))
             {
                 start = System.currentTimeMillis();
-                MySort.quickSort(shapeList,0,(shapeList.size()),ca);
+                MySort.quickSort(shapeList, 0, (shapeList.size()), ca);
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
-            }
-            else if(compareType.equalsIgnoreCase("V"))
+            } else if (compareType.equalsIgnoreCase("V"))
             {
                 start = System.currentTimeMillis();
-                MySort.quickSort(shapeList,0,(shapeList.size()),cv);
+                MySort.quickSort(shapeList, 0, (shapeList.size()), cv);
                 stop = System.currentTimeMillis();
                 System.out.println("Amount of time to complete Quick sort: " + (stop - start) + "ms");
             }
-        }
-        else if (sortType.equalsIgnoreCase("Z"))
+        } else if (sortType.equalsIgnoreCase("Z"))
         {
             if (compareType.equalsIgnoreCase("H"))
                 MySort.cocktailSort(shapeList);
-            else if(compareType.equalsIgnoreCase("A"))
+            else if (compareType.equalsIgnoreCase("A"))
                 MySort.cocktailSort(shapeList, ca);
-            else if(compareType.equalsIgnoreCase("V"))
+            else if (compareType.equalsIgnoreCase("V"))
                 MySort.cocktailSort(shapeList, cv);
         }
-
 
         // Print out list AFTER it gets sorted
         int j = 0;
@@ -257,40 +252,33 @@ public class Tester
                 {
                     System.out.println("Last height of sorted Shape list: " + shapeList.get(j).getHeight());
                 }
-            }
-            else if (compareType.equalsIgnoreCase("A"))
+            } else if (compareType.equalsIgnoreCase("A"))
             {
                 if (j == 0)
                 {
                     System.out.println("First base area of sorted Shape list: " + shapeList.get(j).getArea());
                 } else if (j == thousandth)
                 {
-                    System.out.println("Every thousandth base area of sorted Shape list: " + shapeList.get(j).getArea());
+                    System.out
+                            .println("Every thousandth base area of sorted Shape list: " + shapeList.get(j).getArea());
                     thousandth += 1000;
                 } else if (j == shapeList.size() - 1)
                 {
                     System.out.println("Last base area of sorted Shape list: " + shapeList.get(j).getArea());
                 }
-            }
-            else if (compareType.equalsIgnoreCase("V"))
+            } else if (compareType.equalsIgnoreCase("V"))
             {
                 if (j == 0)
                 {
                     System.out.println("First volume of sorted Shape list: " + shapeList.get(j).getVolume());
-                } 
-                else if (j == thousandth)
+                } else if (j == thousandth)
                 {
                     System.out.println("Every thousandth volume of sorted Shape list: " + shapeList.get(j).getVolume());
                     thousandth += 1000;
-                } 
-                else if (j == shapeList.size() - 1)
+                } else if (j == shapeList.size() - 1)
                 {
                     System.out.println("Last volume of sorted Shape list: " + shapeList.get(j).getVolume());
                 }
-//                else
-//                {
-//                    System.out.println("Every thousandth volume of sorted Shape list: " + shapeList.get(j).getVolume());
-//                }
             }
 
             j++;

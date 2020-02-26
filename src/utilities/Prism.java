@@ -1,6 +1,5 @@
 package utilities;
 
-
 /**
  * An abstract class prism that contains the common attributes
  * of other prism objects
@@ -11,20 +10,37 @@ package utilities;
  */
 public abstract class Prism extends Shape 
 {
-    //attributes
+    //Attributes
     private double side;
     
+    //Constructor
+    
+    /**
+     * The constructor for the Prism class.
+     * @param height Height of the prism.
+     * @param area Area of the prism.
+     * @param volume volume of the prism.
+     * @param side The base shape's side length.
+     */
     public Prism(double height, double area, double volume,double side)
     {
         super(height, area, volume);
         this.side = side;
     }
 
+    /**
+     * Gets the side length of the base shape.
+     * @return The side length of the base shape.
+     */
     public double getSide()
     {
         return side;
     }
 
+    /**
+     * Sets the side length of the base shape.
+     * @param side
+     */
     public void setSide(double side)
     {
         this.side = side;

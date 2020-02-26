@@ -3,10 +3,24 @@ package utilities;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * A class that contains six different types of sorts: Bubble, Selection, Insertion, Merge, Quick
+ * and Cocktail sort. Each sort has two methods comparing elements using either the compareTo() or 
+ * compare() method.
+ * @author Casey Majandog
+ * @version 1.0
+ * Created on February 20, 2020
+ */
 public class MySort
 {
+    //Static attributes
     private static long start, stop;
 
+    /**
+     * Sorts elements using the bubble sort method and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     */
     public static <T extends Comparable<Shape>> void bubbleSort(ArrayList<Shape> list)
     {
 
@@ -28,10 +42,16 @@ public class MySort
         System.out.println("Amount of time to complete Bubble sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the bubble sort method and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param c The compare type of either area or volume.
+     */
     public static <t, T> void bubbleSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
         start = System.currentTimeMillis();
-
         for (int i = 0; i < list.size() - 1; i++)
         {
             for (int j = 0; j < list.size() - i - 1; j++)
@@ -52,6 +72,11 @@ public class MySort
 
     // Referenced Code:
     // https://codereview.stackexchange.com/questions/225751/selection-sort-java-arraylist
+    /**
+     * Sorts elements using the selection sort methods and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     */
     public static <T extends Comparable<Shape>> void selectionSort(ArrayList<Shape> list)
     {
         start = System.currentTimeMillis();
@@ -74,6 +99,13 @@ public class MySort
         System.out.println("Amount of time to complete Selection sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the selection sort methods and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param c The compare type of either area or volume.
+     */
     public static <t, T> void selectionSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
         start = System.currentTimeMillis();
@@ -96,6 +128,11 @@ public class MySort
         System.out.println("Amount of time to complete Selection sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the insertion sort methods and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     */
     public static <T extends Comparable<Shape>> void insertionSort(ArrayList<Shape> list)
     {
         start = System.currentTimeMillis();
@@ -115,6 +152,13 @@ public class MySort
         System.out.println("Amount of time to complete Insertion sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the insertion sort methods and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param c The compare type of either area or volume.
+     */
     public static <t, T> void insertionSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
         start = System.currentTimeMillis();
@@ -134,6 +178,12 @@ public class MySort
         System.out.println("Amount of time to complete Insertion sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the merge sort methods and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @return Either the divided portion of the initial array list or the merged portion.
+     */
     public static <T extends Comparable<Shape>> ArrayList<Shape> mergeSort(ArrayList<Shape> list)
     {
         if (list.size() <= 1)
@@ -166,6 +216,14 @@ public class MySort
         return mergeComparable(leftList, rightList);
     }
 
+    /**
+     * Sorts elements using the merge sort methods and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param c The compare type of either area or volume.
+     * @return
+     */
     public static <t, T> ArrayList<Shape> mergeSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
         if (list.size() <= 1)
@@ -199,7 +257,13 @@ public class MySort
         return mergeComparator(leftList, rightList, c);
     }
 
-    // Choosing the end number as the pivot
+    /**
+     * Sorts elements using the quick sort methods and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param leftIndex The starting index.
+     * @param rightIndex The ending index.
+     */
     public static <T extends Comparable<Shape>> void quickSort(ArrayList<Shape> list, int leftIndex, int rightIndex)
     {
         if (leftIndex < rightIndex)
@@ -210,6 +274,15 @@ public class MySort
         }
     }
 
+    /**
+     * Sorts elements using the quick sort methods and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param leftIndex The starting index.
+     * @param rightIndex The ending index.
+     * @param c The compare type of either area or volume.
+     */
     public static <t, T> void quickSort(ArrayList<Shape> list,int leftIndex, int rightIndex, Comparator<Shape> c)
     {
         if (leftIndex < rightIndex)
@@ -220,7 +293,11 @@ public class MySort
         }
     }
 
-    // COCKTAIL SOOOORT
+    /**
+     * Sorts elements using the cocktail sort methods and compares using compareTo().
+     * @param <T>
+     * @param list An Array list of type Shape.
+     */
     public static <T extends Comparable<Shape>> void cocktailSort(ArrayList<Shape> list)
     {
         start = System.currentTimeMillis();
@@ -268,6 +345,13 @@ public class MySort
         System.out.println("Amount of time to complete Cocktail sort: " + (stop - start) + "ms");
     }
 
+    /**
+     * Sorts elements using the cocktail sort methods and compares using compare().
+     * @param <t>
+     * @param <T>
+     * @param list An Array list of type Shape.
+     * @param c The compare type of either area or volume.
+     */
     public static <t, T> void cocktailSort(ArrayList<Shape> list, Comparator<Shape> c)
     {
         start = System.currentTimeMillis();
@@ -315,7 +399,12 @@ public class MySort
         System.out.println("Amount of time to complete Cocktail sort: " + (stop - start) + "ms");
     }
 
-    // Method for merge sort
+    /**
+     * Merges the two separated lists together. Compares values using the compareTo() method.
+     * @param leftList A list of shapes to compare to the right list.
+     * @param rightList A list of shapes to compare to the left list.
+     * @return A merged list of shapes.
+     */
     private static ArrayList<Shape> mergeComparable(ArrayList<Shape> leftList, ArrayList<Shape> rightList)
     {
         ArrayList<Shape> mergedList = new ArrayList<Shape>();
@@ -350,7 +439,13 @@ public class MySort
         return mergedList;
     }
 
-    // Method for merge sort
+    /**
+     * Merges the two separated lists together. Compares values using the compare() method.
+     * @param leftList leftList A list of shapes to compare to the right list.
+     * @param rightList A list of shapes to compare to the left list.
+     * @param c The compare type of either area or volume.
+     * @return A merged list of shapes.
+     */
     private static ArrayList<Shape> mergeComparator(ArrayList<Shape> leftList, ArrayList<Shape> rightList,
             Comparator<Shape> c)
     {
@@ -387,6 +482,16 @@ public class MySort
         return mergedList;
     }
 
+    /**
+     * Takes values of left index and compares them to the pivot point. If the value is greater
+     * than the pivot point then the right value and the left value swap places. Compares the values using
+     * the compareTo() method.
+     * 
+     * @param list An Array list of type Shape.
+     * @param leftIndex Index of values left of the pivot.
+     * @param rightIndex Index of values right of the pivot.
+     * @return The next pivot point.
+     */
     private static int partitionComparable(ArrayList<Shape> list, int leftIndex, int rightIndex)
     {
         Shape pivot = list.get(leftIndex);
@@ -406,6 +511,16 @@ public class MySort
         return p;
     }
     
+    /**
+     * Takes values of left index and compares them to the pivot point. If the value is greater
+     * than the pivot point then the right value and the left value swap places. Compares the values using
+     * the compare() method.
+     * @param list An Array list of type Shape.
+     * @param leftIndex Index of values left of the pivot.
+     * @param rightIndex Index of values right of the pivot.
+     * @param c The compare type of either area or volume.
+     * @return The next pivot point.
+     */
     private static int partitionComparator(ArrayList<Shape> list, int leftIndex, int rightIndex, Comparator<Shape> c)
     {
         Shape pivot = list.get(leftIndex);
