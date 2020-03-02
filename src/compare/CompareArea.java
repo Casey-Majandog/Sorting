@@ -13,7 +13,7 @@ import utilities.Shape;
 public class CompareArea implements Comparator<Shape>
 {
     /**
-     * Compares two shapes based on their area.
+     * Compares two shapes based on their base area.
      * 
      * @param shape1 First shape to compare with.
      * @param shape2 Second shape to compare with.

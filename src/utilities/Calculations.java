@@ -62,7 +62,7 @@ public class Calculations
      */
     public static double coneVolume(double radius, double height)
     {
-        volume = (0.33)*Math.PI*Math.pow(radius, 2)*height;
+        volume = Math.PI*Math.pow(radius, 2)*height/3;
         return volume;        
     }
     
@@ -87,7 +87,7 @@ public class Calculations
      */
     public static double pyramidVolume(double side, double height)
     {
-        volume = (0.33)*(Math.pow(side, 2))*height;
+        volume = (Math.pow(side, 2))*height/3;
         return volume;        
     }
     
@@ -149,7 +149,7 @@ public class Calculations
      */
     public static double pntPrismArea(double side)
     {
-        area = (5*(Math.pow(side, 2))*Math.tan(54))/4; 
+        area = ((5*(Math.pow(side, 2))*(Math.tan((Math.PI*54/180))))/4);
         return area;
     }
     
@@ -162,7 +162,7 @@ public class Calculations
      */
     public static double pntPrismVolume(double side, double height)
     {
-        volume =  ((5*(Math.pow(side, 2))*Math.tan(54))/4)*height;
+        volume =  ((5*(Math.pow(side, 2))*(Math.tan((Math.PI*54/180))))/4)*height;
         return volume;        
     }
     
@@ -174,7 +174,7 @@ public class Calculations
      */
     public static double octPrismArea(double side)
     {
-        area = (5*(Math.pow(side, 2))*Math.tan(54))/4; 
+        area = 2*(1+Math.sqrt(2))*(Math.pow(side, 2));
         return area;
     }
     
@@ -187,7 +187,7 @@ public class Calculations
      */
     public static double octPrismVolume(double side, double height)
     {
-        volume =  ((5*(Math.pow(side, 2))*Math.tan(54))/4)*height;
+        volume =  2*(1+Math.sqrt(2))*(Math.pow(side, 2))*height;
         return volume;        
     }
     

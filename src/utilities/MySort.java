@@ -497,14 +497,16 @@ public class MySort
         Shape pivot = list.get(leftIndex);
         int p = leftIndex;
 
-        for (int i = leftIndex + 1; i < rightIndex; i++)
+        for (int i = leftIndex +1; i < rightIndex; i++)
         {
             if (list.get(i).compareTo(pivot) > 0)
             {
+                
                 Shape temp = list.get(p + 1);
                 list.set(p, list.get(i));
                 list.set(i, temp);
                 list.set(p + 1, pivot);
+               
                 p++;
             }
         }
@@ -530,11 +532,12 @@ public class MySort
         {
             if (c.compare(list.get(i), pivot) > 0)
             {
+
                 Shape temp = list.get(p + 1);
                 list.set(p, list.get(i));
                 list.set(i, temp);
                 list.set(p + 1, pivot);
-                p++;
+               p++;
             }
         }
         return p;

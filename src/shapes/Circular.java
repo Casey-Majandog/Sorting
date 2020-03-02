@@ -17,14 +17,15 @@ public class Circular extends Shape
     /**
      * Constructor for the circular class.
      * 
+     * @param name Name of the shape.
      * @param height Height of the shape.
      * @param area Base area of the shape.
      * @param volume Volume of the shape.
      * @param radius Radius of the base shape.
      */
-    public Circular(double height, double area, double volume, double radius)
+    public Circular(String name, double height, double area, double volume, double radius)
     {
-        super(height, area, volume);
+        super(name, height, area, volume);
         this.radius = radius;
     }
 

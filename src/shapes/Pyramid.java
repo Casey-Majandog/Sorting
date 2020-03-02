@@ -14,14 +14,15 @@ public class Pyramid extends Prism
 {
     /**
      * Constructor of the Pyramid class.
+     * @param name Name of the prism.
      * @param height Height of the prism.
      * @param area Area of the prism.
      * @param volume Volume of the prism.
      * @param side Side length of the base shape.
      */
-    public Pyramid(double height, double area, double volume, double side)
+    public Pyramid(String name, double height, double area, double volume, double side)
     {
-        super(height, area, volume, side);
+        super(name, height, area, volume, side);
     }
  
 }

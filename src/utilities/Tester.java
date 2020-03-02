@@ -60,7 +60,6 @@ public class Tester
 
         // How to bring arguments in
         // Run configurations
-        // Use JOption pane for now, figure out how to using command prompt later
         for (String arg : args)
         {
             subString = arg.substring(1, 2);
@@ -103,14 +102,14 @@ public class Tester
                 area = Calculations.cylinderArea(radius);
                 volume = Calculations.cylinderVolume(radius, height);
 
-                shape = new Circular(height, area, volume, radius);
+                shape = new Circular("Cylinder", height, area, volume, radius);
             } else if (shapeName.equals("Cone"))
             {
                 height = Double.parseDouble(fileValues[++i]);
                 radius = Double.parseDouble(fileValues[++i]);
                 area = Calculations.coneArea(radius);
                 volume = Calculations.coneVolume(radius, height);
-                shape = new Circular(height, area, volume, radius);
+                shape = new Circular("Cone", height, area, volume, radius);
             } else if (shapeName.equals("Pyramid"))
             {
                 height = Double.parseDouble(fileValues[++i]);
@@ -118,7 +117,7 @@ public class Tester
                 area = Calculations.pyramidArea(side);
                 volume = Calculations.pyramidVolume(side, height);
 
-                shape = new Pyramid(height, area, volume, side);
+                shape = new Pyramid("Pyramid", height, area, volume, side);
             } else if (shapeName.equals("SquarePrism"))
             {
                 height = Double.parseDouble(fileValues[++i]);
@@ -126,7 +125,7 @@ public class Tester
                 area = Calculations.sqrPrismArea(side);
                 volume = Calculations.sqrPrismVolume(side, height);
 
-                shape = new SquarePrism(height, area, volume, side);
+                shape = new SquarePrism("Square Prism", height, area, volume, side);
             } else if (shapeName.equals("TriangularPrism"))
             {
                 height = Double.parseDouble(fileValues[++i]);
@@ -134,7 +133,7 @@ public class Tester
                 area = Calculations.triPrismArea(side);
                 volume = Calculations.triPrismVolume(side, height);
 
-                shape = new TriangularPrism(height, area, volume, side);
+                shape = new TriangularPrism("Triangular Prism", height, area, volume, side);
             } else if (shapeName.equals("PentagonalPrism"))
             {
                 height = Double.parseDouble(fileValues[++i]);
@@ -142,15 +141,15 @@ public class Tester
                 area = Calculations.pntPrismArea(side);
                 volume = Calculations.pntPrismVolume(side, height);
 
-                shape = new PentalgonalPrism(height, area, volume, side);
+                shape = new PentalgonalPrism("Pentagonal Prism", height, area, volume, side);
             } else if (shapeName.equals("OctagonalPrism"))
             {
                 height = Double.parseDouble(fileValues[++i]);
                 side = Double.parseDouble(fileValues[++i]);
-                area = Calculations.pntPrismArea(side);
-                volume = Calculations.pntPrismVolume(side, height);
+                area = Calculations.octPrismArea(side);
+                volume = Calculations.octPrismVolume(side, height);
 
-                shape = new OctagonalPrism(height, area, volume, side);
+                shape = new OctagonalPrism("Octagonal Prism", height, area, volume, side);
             }
 
             shapeList.add(shape);
@@ -239,45 +238,49 @@ public class Tester
         thousandth = 999;
         while (j < shapeList.size())
         {
+            
             if (compareType.equalsIgnoreCase("H"))
             {
                 if (j == 0)
                 {
-                    System.out.println("First height of sorted Shape list: " + shapeList.get(j).getHeight());
+                    System.out.println("First height of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getHeight());
                 } else if (j == thousandth)
                 {
-                    System.out.println("Every thousandth height of sorted Shape list: " + shapeList.get(j).getHeight());
+                    System.out.println((thousandth + 1) + "th height of sorted Shape for " + shapeList.get(j).getName() +" list: " + shapeList.get(j).getHeight());
                     thousandth += 1000;
                 } else if (j == shapeList.size() - 1)
                 {
-                    System.out.println("Last height of sorted Shape list: " + shapeList.get(j).getHeight());
+                    System.out.println("Last height of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getHeight());
                 }
             } else if (compareType.equalsIgnoreCase("A"))
             {
                 if (j == 0)
                 {
-                    System.out.println("First base area of sorted Shape list: " + shapeList.get(j).getArea());
+                    System.out.println("First base area of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getArea());
                 } else if (j == thousandth)
                 {
-                    System.out
-                            .println("Every thousandth base area of sorted Shape list: " + shapeList.get(j).getArea());
+                    System.out.println((thousandth + 1) + "th base area of sorted Shape for " + shapeList.get(j).getName() +" list: " + shapeList.get(j).getArea());
                     thousandth += 1000;
                 } else if (j == shapeList.size() - 1)
                 {
-                    System.out.println("Last base area of sorted Shape list: " + shapeList.get(j).getArea());
+                    System.out.println("Last base area of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getArea());
                 }
-            } else if (compareType.equalsIgnoreCase("V"))
+            } 
+                else if (compareType.equalsIgnoreCase("V"))
             {
                 if (j == 0)
                 {
-                    System.out.println("First volume of sorted Shape list: " + shapeList.get(j).getVolume());
+                   
+                    System.out.println("First volume of sorted Shape list if for " + shapeList.get(j).getName() +": " + shapeList.get(j).getVolume());
                 } else if (j == thousandth)
                 {
-                    System.out.println("Every thousandth volume of sorted Shape list: " + shapeList.get(j).getVolume());
+      
+                    System.out.println((thousandth + 1) + "th volume of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getVolume());
                     thousandth += 1000;
                 } else if (j == shapeList.size() - 1)
                 {
-                    System.out.println("Last volume of sorted Shape list: " + shapeList.get(j).getVolume());
+  
+                    System.out.println("Last volume of sorted Shape list for " + shapeList.get(j).getName() +": " + shapeList.get(j).getVolume());
                 }
             }
 

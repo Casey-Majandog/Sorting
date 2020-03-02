@@ -1,0 +1,1 @@
+The assignment is 95% complete. There is a deficiencies with the quick sort algorithm. It will print out in descending order but some values are out of place.

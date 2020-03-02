@@ -13,14 +13,15 @@ public class OctagonalPrism extends Prism
 {
     /**
      * Constructor of the OctagonalPrism class.
+     * @param name Name of the prism.
      * @param height Height of the prism.
      * @param area Area of the prism.
      * @param volume Volume of the prism.
      * @param side Side length of the base shape.
      */
-    public OctagonalPrism(double height, double area, double volume, double side)
+    public OctagonalPrism(String name, double height, double area, double volume, double side)
     {
-        super(height, area, volume, side);
+        super(name, height, area, volume, side);
     }
     
 }

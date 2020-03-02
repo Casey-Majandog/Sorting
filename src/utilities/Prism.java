@@ -22,9 +22,9 @@ public abstract class Prism extends Shape
      * @param volume volume of the prism.
      * @param side The base shape's side length.
      */
-    public Prism(double height, double area, double volume,double side)
+    public Prism(String name, double height, double area, double volume,double side)
     {
-        super(height, area, volume);
+        super(name, height, area, volume);
         this.side = side;
     }
 

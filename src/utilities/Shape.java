@@ -13,6 +13,7 @@ public abstract class Shape implements Comparable<Shape>
     private double height;
     private double area;
     private double volume;
+    private String name;
 
     // Constructor
 
@@ -23,9 +24,10 @@ public abstract class Shape implements Comparable<Shape>
      * @param area   Area of the base polygon of shape.
      * @param volume Volume of the shape.
      */
-    public Shape(double height, double area, double volume)
+    public Shape(String name, double height, double area, double volume)
     {
         super();
+        this.name = name;
         this.height = height;
         this.area = area;
         this.volume = volume;
@@ -88,6 +90,24 @@ public abstract class Shape implements Comparable<Shape>
     {
         this.volume = volume;
     }
+    
+    /**
+     * Gets the name of a shape.
+     * @param name the name of the shape.
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * Sets the name of a shape.
+     * @param name the name of the shape.
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
     /**
      * Compares the height of the current shape to another shape.
@@ -108,5 +128,7 @@ public abstract class Shape implements Comparable<Shape>
         }
 
     }
+
+   
 
 }
